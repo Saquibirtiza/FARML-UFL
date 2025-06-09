@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Execution Visualizer</title>
+    <title>FARML - Self-Supervised Federated Learning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
@@ -275,7 +276,7 @@
                         marginBottom: '30px',
                         fontSize: '2.2em'
                     }}>
-                        Project Execution Visualizer
+                        FARML - Self-Supervised Federated Learning
                     </h1>
 
                     {/* Section 1: Data Preparation */}
@@ -399,7 +400,8 @@
                                 gap: '8px'
                             }}
                         >
-                            ?? {isProcessing ? 'Processing...' : 'Prepare Data'}
+                            <i className="fas fa-database" style={{marginRight: '8px'}}></i>
+                            {isProcessing ? 'Processing...' : 'Prepare Data'}
                         </button>
 
                         {uploadStatus && <StatusMessage message={uploadStatus} />}
@@ -433,7 +435,17 @@
                                             fontSize: '0.8em'
                                         }}
                                     >
-                                        {expandedOutput ? '? Collapse' : '? Expand All'}
+                                        {expandedOutput ? (
+                                            <>
+                                                <i className="fas fa-chevron-up" style={{marginRight: '5px'}}></i>
+                                                Collapse
+                                            </>
+                                        ) : (
+                                            <>
+                                                <i className="fas fa-chevron-down" style={{marginRight: '5px'}}></i>
+                                                Expand All
+                                            </>
+                                        )}
                                     </button>
                                 </div>
 
@@ -642,7 +654,8 @@
                                         gap: '8px'
                                     }}
                                 >
-                                    ?? Train Model
+                                    <i className="fas fa-chart-bar" style={{marginRight: '8px'}}></i>
+                                    Train Model
                                 </button>
 
                                 <button 
@@ -662,7 +675,8 @@
                                         gap: '8px'
                                     }}
                                 >
-                                    ?? {isProcessing ? 'Importing...' : 'Import Existing Model'}
+                                    <i className="fas fa-upload" style={{marginRight: '8px'}}></i>
+                                    {isProcessing ? 'Importing...' : 'Import Existing Model'}
                                 </button>
                             </div>
 
@@ -763,17 +777,19 @@
                                     {/* Chart Display */}
                                     <div style={{ marginBottom: '20px' }}>
                                         <h4 style={{ color: '#1a237e', marginBottom: '15px' }}>Federated Learning Method Comparison</h4>
-                                        <img 
-                                            src="federated-learning-chart.png" 
-                                            alt="Federated Learning Comparison Chart"
-                                            style={{
-                                                width: '100%',
-                                                maxWidth: '800px',
-                                                height: 'auto',
-                                                border: '1px solid #ddd',
-                                                borderRadius: '5px'
-                                            }}
-                                        />
+                                        <div style={{ textAlign: 'center' }}>
+                                            <img 
+                                                src="federated-learning-chart.png" 
+                                                alt="Federated Learning Comparison Chart"
+                                                style={{
+                                                    width: '100%',
+                                                    maxWidth: '800px',
+                                                    height: 'auto',
+                                                    border: '1px solid #ddd',
+                                                    borderRadius: '5px'
+                                                }}
+                                            />
+                                        </div>
                                         <p style={{
                                             marginTop: '15px',
                                             fontStyle: 'italic',
